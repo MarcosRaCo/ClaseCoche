@@ -1,4 +1,3 @@
-
 public abstract class CotxeAbstracte implements InterfaceCotxe {
 
     protected String marca;
@@ -9,5 +8,4 @@ public abstract class CotxeAbstracte implements InterfaceCotxe {
         this.model=model;
         this.tipuscanvi=tipuscanvi;
     }
-
 }
