@@ -9,7 +9,7 @@
 public class TestCotxe_Marcos_Rabadan {
     public static void main(String[] args) {
         //Creacion del objeto coche. Le pasamos los argumentos necesarios
-        Cotxe_Marcos_Rabadan coche = new Cotxe_Marcos_Rabadan("Citroen", "Xsara", TipusCanvi.CanviManual, EstatsMotorCotxe.Aturat);
+        Cotxe_Marcos_Rabadan coche = new Cotxe_Marcos_Rabadan("Citroen", "Xsara", TipusCanvi.CanviManual, EstatsMotorCotxe.EnMarxa);
         try {
             coche.arrancarMotor();
         }catch (Exception e){
