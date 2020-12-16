@@ -7,5 +7,14 @@
  * Description:
  **/
 public enum CanvioManual {
-
+    //Manual
+    R,
+    N,
+    Primera,
+    Segunda,
+    Tercera,
+    Cuarta,
+    Quinta,
+    Sexta,
+    //
 }

@@ -3,9 +3,12 @@
  * Nombre_project: ClaseCoche
  * CanvioAutomatico
  * Created by: MarcosRa
- * Date : 15/12/2020
+ * Date : 16/12/2020
  * Description:
  **/
 public enum CanvioAutomatico {
-
+    //Automatico
+    F,
+    N,
+    R;
 }
