@@ -11,7 +11,7 @@ public class CotxeSegonaPart_Marcos_Rabadan extends Cotxe_Marcos_Rabadan {
     protected MarchaAutomatico cambiarAutomatico;
     protected enum MarchaManual { R, N, Primera, Segunda, Tercera, Cuarta, Quinta, Sexta;};
     protected MarchaManual cambiarManual;
-    public CotxeSegonaPart_Marcos_Rabadan(String marca, String model, TipusCanvi tipuscanvi, EstatsMotorCotxe estatsMotorCotxe, MarchaAutomatico cambiarAutomatico) {
+    public CotxeSegonaPart_Marcos_Rabadan(String marca, String model, TipusCanvi tipuscanvi, EstatsMotorCotxe estatsMotorCotxe, MarchaAutomatico cambiarAutomatico, MarchaManual cambiarManual) {
         super(marca, model, tipuscanvi, estatsMotorCotxe);
         this.cambiarAutomatico = cambiarAutomatico;
         this.cambiarManual = cambiarManual;
@@ -39,19 +39,19 @@ public class CotxeSegonaPart_Marcos_Rabadan extends Cotxe_Marcos_Rabadan {
         if (tipuscanvi == TipusCanvi.CanviAutomatic) {
             switch (marcha) {
                 case '+':
-                    if (this.cambiarAutomatico == MarchaAutomatico.N) {
+                    if (this.cambiarAutomatico.equals(MarchaAutomatico.N)) {
                         this.cambiarAutomatico = MarchaAutomatico.F;
-                    }else if (this.cambiarAutomatico == MarchaAutomatico.R) {
+                    }else if (this.cambiarAutomatico.equals(MarchaAutomatico.R)) {
                         this.cambiarAutomatico = MarchaAutomatico.N;
                         System.out.println("ahora Neutral");
                     } else {
-                        throw new Exception("Marcha mal");
+                        throw new Exception("No puedes subir de marcha");
                     }
                     break;
                 case '-':
-                    if (this.cambiarAutomatico == MarchaAutomatico.N) {
+                    if (this.cambiarAutomatico.equals(MarchaAutomatico.N)) {
                         this.cambiarAutomatico = MarchaAutomatico.R;
-                    } else if (this.cambiarAutomatico == MarchaAutomatico.R) {
+                    } else if (this.cambiarAutomatico.equals(MarchaAutomatico.R)) {
                         System.out.println("No puedes bajar de marcha");
                     }
                     break;
@@ -67,10 +67,42 @@ public class CotxeSegonaPart_Marcos_Rabadan extends Cotxe_Marcos_Rabadan {
         if (tipuscanvi == TipusCanvi.CanviManual) {
             switch (marcha){
                 case '+':
-
+                    if (this.cambiarManual.equals(MarchaManual.N)) {
+                        this.cambiarManual = MarchaManual.Primera;
+                    } else if (this.cambiarManual.equals(MarchaManual.Primera)) {
+                        this.cambiarManual = MarchaManual.Segunda;
+                    } else if (this.cambiarManual.equals(MarchaManual.Segunda)) {
+                        this.cambiarManual = MarchaManual.Tercera;
+                    } else if (this.cambiarManual.equals(MarchaManual.Tercera)) {
+                        this.cambiarManual = MarchaManual.Cuarta;
+                    } else if (this.cambiarManual.equals(MarchaManual.Cuarta)) {
+                        this.cambiarManual = MarchaManual.Quinta;
+                    } else if (this.cambiarManual.equals(MarchaManual.Quinta)) {
+                        this.cambiarManual = MarchaManual.Sexta;
+                    } else if (this.cambiarManual.equals(MarchaManual.Sexta)) {
+                        throw new Exception("No puedes subir marcha");
+                    } else if (cambiarManual.equals(CanvioManual.R)) {
+                        this.cambiarManual = MarchaManual.N;
+                    }
                     break;
                 case '-':
-
+                    if (this.cambiarManual.equals(MarchaManual.N)) {
+                        this.cambiarManual = MarchaManual.R;
+                    } else if (this.cambiarManual.equals(MarchaManual.Primera)) {
+                        this.cambiarManual = MarchaManual.N;
+                    } else if (this.cambiarManual.equals(MarchaManual.Segunda)) {
+                        this.cambiarManual = MarchaManual.Primera;
+                    } else if (this.cambiarManual.equals(MarchaManual.Tercera)) {
+                        this.cambiarManual = MarchaManual.Segunda;
+                    } else if (this.cambiarManual.equals(MarchaManual.Cuarta)) {
+                        this.cambiarManual = MarchaManual.Tercera;
+                    } else if (this.cambiarManual.equals(MarchaManual.Quinta)) {
+                        this.cambiarManual = MarchaManual.Cuarta;
+                    } else if (this.cambiarManual.equals(MarchaManual.Sexta)) {
+                        this.cambiarManual = MarchaManual.Quinta;
+                    } else if (this.cambiarManual.equals(MarchaManual.R)) {
+                        throw new Exception("No puedes bajar de marcha");
+                    }
                     break;
                 default:
                     throw new Exception("Solo son validos + y -");
